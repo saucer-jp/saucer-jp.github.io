@@ -3,23 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexoを使い始めた | SAUCER blog</title>
+  <title>Hexoのカテゴリーを多段にする | SAUCER blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hexoはシンプルなblog frameworkで、node.jsで動いてる。
-記事をlocalで書いたあとにgenerateコマンドを実行すると、Hexoが静的ファイルを書き出してくれるので、それをGitHub Pagesなりに配置すれば良いというblogがお手軽に公開できる代物。
-使い始めた理由は、じまぐ氏が良いって言っていたのと、導入が楽なこと。それと、postが.mdファイル単位で、なんと">
+  <meta name="description" content="これは知らなかっただけなので超簡単だった。やり方は2つあるようで、Front-matterのcategories部分を配列にしたり、リストを重ねれば多段になる。
+ただし、Hexo Ver3.0.0にはカテゴリーのバグがあり正しく出力されない。Ver3.0.1にアップデートすることでこのバグは解消される。
+1categories: [foo, bar]
+123categories:- foo- ba">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexoを使い始めた">
-<meta property="og:url" content="http://saucer-jp.github.io/2015/04/27/initial-post/index.html">
+<meta property="og:title" content="Hexoのカテゴリーを多段にする">
+<meta property="og:url" content="http://saucer-jp.github.io/2015/04/28/how-to-use-categories/index.html">
 <meta property="og:site_name" content="SAUCER blog">
-<meta property="og:description" content="Hexoはシンプルなblog frameworkで、node.jsで動いてる。
-記事をlocalで書いたあとにgenerateコマンドを実行すると、Hexoが静的ファイルを書き出してくれるので、それをGitHub Pagesなりに配置すれば良いというblogがお手軽に公開できる代物。
-使い始めた理由は、じまぐ氏が良いって言っていたのと、導入が楽なこと。それと、postが.mdファイル単位で、なんと">
+<meta property="og:description" content="これは知らなかっただけなので超簡単だった。やり方は2つあるようで、Front-matterのcategories部分を配列にしたり、リストを重ねれば多段になる。
+ただし、Hexo Ver3.0.0にはカテゴリーのバグがあり正しく出力されない。Ver3.0.1にアップデートすることでこのバグは解消される。
+1categories: [foo, bar]
+123categories:- foo- ba">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexoを使い始めた">
-<meta name="twitter:description" content="Hexoはシンプルなblog frameworkで、node.jsで動いてる。
-記事をlocalで書いたあとにgenerateコマンドを実行すると、Hexoが静的ファイルを書き出してくれるので、それをGitHub Pagesなりに配置すれば良いというblogがお手軽に公開できる代物。
-使い始めた理由は、じまぐ氏が良いって言っていたのと、導入が楽なこと。それと、postが.mdファイル単位で、なんと">
+<meta name="twitter:title" content="Hexoのカテゴリーを多段にする">
+<meta name="twitter:description" content="これは知らなかっただけなので超簡単だった。やり方は2つあるようで、Front-matterのcategories部分を配列にしたり、リストを重ねれば多段になる。
+ただし、Hexo Ver3.0.0にはカテゴリーのバグがあり正しく出力されない。Ver3.0.1にアップデートすることでこのバグは解消される。
+1categories: [foo, bar]
+123categories:- foo- ba">
 <meta name="twitter:creator" content="@https://twitter.com/saucerjp">
   
     <link rel="alternative" href="/atom.xml" title="SAUCER blog" type="application/atom+xml">
@@ -66,14 +69,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-initial-post" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-how-to-use-categories" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/04/27/initial-post/" class="article-date">
-  <time datetime="2015-04-27T06:39:59.000Z" itemprop="datePublished">2015/04/27</time>
+    <a href="/2015/04/28/how-to-use-categories/" class="article-date">
+  <time datetime="2015-04-28T06:59:46.000Z" itemprop="datePublished">2015/04/28</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Others/">Others</a>
+    <a class="article-category-link" href="/categories/Development/">Development</a>►<a class="article-category-link" href="/categories/Development/Hexo/">Hexo</a>
   </div>
 
   </div>
@@ -84,7 +87,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hexoを使い始めた
+      Hexoのカテゴリーを多段にする
     </h1>
   
 
@@ -92,18 +95,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>はシンプルなblog frameworkで、<a href="https://nodejs.org/" target="_blank" rel="external">node.js</a>で動いてる。</p>
-<p>記事をlocalで書いたあとにgenerateコマンドを実行すると、Hexoが静的ファイルを書き出してくれるので、それを<a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a>なりに配置すれば良いというblogがお手軽に公開できる代物。</p>
-<p>使い始めた理由は、<a href="https://twitter.com/nakajmg" target="_blank" rel="external">じまぐ氏</a>が良いって言っていたのと、導入が楽なこと。それと、postが<code>.md</code>ファイル単位で、なんとなく扱いやすそうだなぁと思ったから。他にもなんかあったような気がするけど忘れた。</p>
-<p>ちょこちょことメモ的なものを残して行けたらなーって思う。使い始めたバージョンは<code>Hexo 3.0.0</code></p>
+        <p>これは知らなかっただけなので超簡単だった。やり方は2つあるようで、<code>Front-matter</code>の<code>categories</code>部分を配列にしたり、リストを重ねれば多段になる。</p>
+<p>ただし、Hexo Ver3.0.0にはカテゴリーの<a href="https://github.com/hexojs/hexo/issues/1132" target="_blank" rel="external">バグ</a>があり正しく出力されない。Ver3.0.1にアップデートすることでこのバグは解消される。</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">categories</span>: <span class="string">[foo, bar]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">-<span class="ruby"> foo</span><br><span class="line"></span>-<span class="ruby"> baz</span></span><br></pre></td></tr></table></figure>
+<p>結果はこんな感じになる。</p>
 <ul>
-<li><a href="http://hexo.io/" target="_blank" rel="external">Hexo: A fast, simple &amp; powerful blog framework</a></li>
+<li>foo(2)<ul>
+<li>bar(1)</li>
+<li>baz(1)</li>
+</ul>
+</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://saucer-jp.github.io/2015/04/27/initial-post/" data-id="ci90p6mwo0009sfc95115kbm5" class="article-share-link">Share</a>
+      <a data-url="http://saucer-jp.github.io/2015/04/28/how-to-use-categories/" data-id="ci90yrk990000spc9132wnpx9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -112,15 +120,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/04/28/how-to-use-categories/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Hexoのカテゴリーを多段にする
-        
-      </div>
-    </a>
   
+    <a href="/2015/04/27/initial-post/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hexoを使い始めた</div>
+    </a>
   
 </nav>
 
