@@ -62,6 +62,154 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-how-to-use-draft-option" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/29/how-to-use-draft-option/" class="article-date">
+  <time datetime="2015-04-29T13:11:09.000Z" itemprop="datePublished">2015/04/29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Development/">Development</a>►<a class="article-category-link" href="/categories/Development/Hexo/">Hexo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/29/how-to-use-draft-option/">$ hexo serverでドラフトの記事も表示する</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>やり方は簡単。<code>--draft</code>オプションをつけて起動するだけ。</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ドラフトの記事も表示する</span></span><br><span class="line">$ hexo s --draft</span><br></pre></td></tr></table></figure>
+<p>んじゃ、なんでこんなことを書いているかって言うと、最初に間違った方法でドラフト記事を表示していたから。</p>
+<p>最初にやっていた方法は、<code>_config.yml</code>にある<code>render_drafts: false</code>を<code>true</code>にしていた。この方法でドラフトの記事を表示していて、ぱっと見問題なかったんだけど、いざ<code>$ hexo generate</code>をするとドラフトを含めて静的ファイルが書き出されてしまっていて、あれれ、これでは困るとなってしまった。</p>
+<p>困ってから説明書を開く後手な感じでドキュメントを見返したら、ちゃんと<a href="http://hexo.io/docs/commands.html#Display_drafts" target="_blank" rel="external">Hexo - Commands Options</a>に書いてあった……</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saucer-jp.github.io/2015/04/29/how-to-use-draft-option/" data-id="ci92rh6t4000cwuc96z8flpyh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-how-to-put-images-in-a-post" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/29/how-to-put-images-in-a-post/" class="article-date">
+  <time datetime="2015-04-29T13:10:48.000Z" itemprop="datePublished">2015/04/29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Development/">Development</a>►<a class="article-category-link" href="/categories/Development/Hexo/">Hexo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/29/how-to-put-images-in-a-post/">HexoのPostに画像を置く</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="_config-ymlの設定">_config.ymlの設定</h2><p><code>_config.yml</code>の中の<code>post_asset_folder</code>を<code>true</code>にする。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h2 id="記事作成">記事作成</h2><p>上の設定がされていると、記事作成時に<code>.md</code>と同時にフォルダも作成されるので、そこに画像などの静的ファイルを配置する。例えば<code>$ hexo new sample-post</code>をすると、<code>sample-post.md</code>と同一の階層に<code>sample-post</code>フォルダが作成される。</p>
+<h2 id="記事に配置するコード">記事に配置するコード</h2><p>フォルダを参照するためのコードを記事に設置することで、フォルダ内の静的ファイルを参照できる。Markdownなのでリンクのパス部分のみ置き換えなのかと思ったら、コードの設置のみで良いらしい。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// これは正しく実行されない</span><br><span class="line">![<span class="link_label">example image</span>](<span class="link_url">&#123;% asset_img example.png %&#125;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 画像が出力される</span></span><br><span class="line">&#123;% asset_img example.png <span class="variable">%&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// テキストリンクが出力される</span></span><br><span class="line">&#123;% asset_link example.png <span class="string">'サンプル'</span> <span class="variable">%&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// パスがテキストで出力される</span></span><br><span class="line">&#123;% asset_link example.pdf <span class="string">'サンプルpdf'</span> <span class="variable">%&#125;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saucer-jp.github.io/2015/04/29/how-to-put-images-in-a-post/" data-id="ci92rh6ta000kwuc98ql1au4o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-how-to-deploy-blogs-to-github-pages" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/29/how-to-deploy-blogs-to-github-pages/" class="article-date">
+  <time datetime="2015-04-29T13:10:18.000Z" itemprop="datePublished">2015/04/29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Development/">Development</a>►<a class="article-category-link" href="/categories/Development/Hexo/">Hexo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/29/how-to-deploy-blogs-to-github-pages/">Hexoの記事をGitHub Pagesにデプロイする</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="GitHub側での作業">GitHub側での作業</h2><p>公開用の<code>username.github.io</code>リポジトリを作成する。<br>詳細は<a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a>にある。</p>
+<h2 id="Hexo側での設定">Hexo側での設定</h2><p>Hexo Ver3.0.1で確認しています。</p>
+<h3 id="プラグインのインストール">プラグインのインストール</h3><p>Ver3.0.0から、デプロイには別途npmモジュールのインストールが必要（ref. <a href="https://github.com/hexojs/hexo/issues/1040" target="_blank" rel="external">#1040</a>）になっていて、<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a>をインストールする。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="operator"><span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span></span><br></pre></td></tr></table></figure>
+<p><span style="color:#999;font-size:12px;">備考：<code>--save</code>オプションをつけると<code>package.json</code>の<code>dependencies</code>に、インストールしたnpmモジュールを自動的に記入してくれます。</span></p>
+<h3 id="_config-yml">_config.yml</h3><p>次に<code>_config.yml</code>の<code>deploy</code>部分を編集。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">  <span class="attribute">type</span>: git</span><br><span class="line">  <span class="attribute">repo</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:saucer-jp/saucer-jp.github.io.git</span><br><span class="line">  <span class="attribute">branch</span>: </span><br><span class="line">  <span class="attribute">message</span>:</span><br></pre></td></tr></table></figure>
+<p><code>branch</code>と<code>message</code>は任意で入力。<code>branch</code>はGitHubを使用していれば自動で検出されます。<code>github.io</code>を使っていれば<code>master</code>になるのかな。</p>
+<p><code>message</code>は何も入れなければ、デフォルトで<code>Site updated: {{ now("YYYY-MM-DD HH:mm:ss") }}</code>が入る。</p>
+<h4 id="デプロイとは関係ないけど…">デプロイとは関係ないけど…</h4><p>上のコード<code>Site updated: {{ now("YYYY-MM-DD HH:mm:ss") }}</code>を記事に入れたとたんに<code>$ hexo server</code>が起動しなくなって、え？あれ？壊れた？なんで？ってなって、最初原因がこれだって気づかないで色々とモジュール入れなおしたりとか、もう一個ブログをinitしてみたりと結構遠回りした。</p>
+<p>原因はHexoがインラインのコード（ここだと<code>now()</code>の部分）を実行しようとしてエラーになっていたからで、解決策は<a href="http://hexo.io/docs/troubleshooting.html#Escape_Contents" target="_blank" rel="external">Hexo - troubleshooting</a>に書いてあって、エスケープ用のタグが用意されていた。</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="var_expand">% raw %</span>&#125;</span><br><span class="line">  実行されてしまうコード</span><br><span class="line">&#123;<span class="var_expand">% endraw %</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>上のようにするとHexoに実行されなくなるとのこと。</p>
+<h2 id="ふと…">ふと…</h2><p>なんだか結局、Hexoのドキュメントをコピーした感じになったので、<a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">公式のドキュメント</a>を見るのがよさそう。</p>
+<h2 id="ref-">ref.</h2><ul>
+<li><a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Hexo - Deployment</a></li>
+<li><a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saucer-jp.github.io/2015/04/29/how-to-deploy-blogs-to-github-pages/" data-id="ci92rh6tc000nwuc9d1hvbjbp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-how-to-use-categories" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/04/28/how-to-use-categories/" class="article-date">
@@ -104,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://saucer-jp.github.io/2015/04/28/how-to-use-categories/" data-id="ci90z8yzi000cl5c9ezc54nsy" class="article-share-link">Share</a>
+      <a data-url="http://saucer-jp.github.io/2015/04/28/how-to-use-categories/" data-id="ci92rh6t7000hwuc9thdcaf5s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -151,7 +299,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://saucer-jp.github.io/2015/04/27/initial-post/" data-id="ci90z8yzg0009l5c9fchnv6dg" class="article-share-link">Share</a>
+      <a data-url="http://saucer-jp.github.io/2015/04/27/initial-post/" data-id="ci92rh6t20009wuc9sth9mjw7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -170,7 +318,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Development/">Development</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Development/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/">Others</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Development/">Development</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Development/Hexo/">Hexo</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/">Others</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -191,6 +339,18 @@
       <ul>
         
           <li>
+            <a href="/2015/04/29/how-to-use-draft-option/">$ hexo serverでドラフトの記事も表示する</a>
+          </li>
+        
+          <li>
+            <a href="/2015/04/29/how-to-put-images-in-a-post/">HexoのPostに画像を置く</a>
+          </li>
+        
+          <li>
+            <a href="/2015/04/29/how-to-deploy-blogs-to-github-pages/">Hexoの記事をGitHub Pagesにデプロイする</a>
+          </li>
+        
+          <li>
             <a href="/2015/04/28/how-to-use-categories/">Hexoのカテゴリーを多段にする</a>
           </li>
         
@@ -207,7 +367,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">4月 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">4月 2015</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 

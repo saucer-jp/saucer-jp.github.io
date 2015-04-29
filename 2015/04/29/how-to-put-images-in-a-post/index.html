@@ -3,26 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexoのカテゴリーを多段にする | SAUCER blog</title>
+  <title>HexoのPostに画像を置く | SAUCER blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="これは知らなかっただけなので超簡単だった。やり方は2つあるようで、Front-matterのcategories部分を配列にしたり、リストを重ねれば多段になる。
-ただし、Hexo Ver3.0.0にはカテゴリーのバグがあり正しく出力されない。Ver3.0.1にアップデートすることでこのバグは解消される。
-1categories: [foo, bar]
-123categories:- foo- ba">
+  <meta name="description" content="_config.ymlの設定_config.ymlの中のpost_asset_folderをtrueにする。
+1post_asset_folder: true
+記事作成上の設定がされていると、記事作成時に.mdと同時にフォルダも作成されるので、そこに画像などの静的ファイルを配置する。例えば$ hexo new sample-postをすると、sample-post.mdと同一の階層にsample-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexoのカテゴリーを多段にする">
-<meta property="og:url" content="http://saucer-jp.github.io/2015/04/28/how-to-use-categories/index.html">
+<meta property="og:title" content="HexoのPostに画像を置く">
+<meta property="og:url" content="http://saucer-jp.github.io/2015/04/29/how-to-put-images-in-a-post/index.html">
 <meta property="og:site_name" content="SAUCER blog">
-<meta property="og:description" content="これは知らなかっただけなので超簡単だった。やり方は2つあるようで、Front-matterのcategories部分を配列にしたり、リストを重ねれば多段になる。
-ただし、Hexo Ver3.0.0にはカテゴリーのバグがあり正しく出力されない。Ver3.0.1にアップデートすることでこのバグは解消される。
-1categories: [foo, bar]
-123categories:- foo- ba">
+<meta property="og:description" content="_config.ymlの設定_config.ymlの中のpost_asset_folderをtrueにする。
+1post_asset_folder: true
+記事作成上の設定がされていると、記事作成時に.mdと同時にフォルダも作成されるので、そこに画像などの静的ファイルを配置する。例えば$ hexo new sample-postをすると、sample-post.mdと同一の階層にsample-">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexoのカテゴリーを多段にする">
-<meta name="twitter:description" content="これは知らなかっただけなので超簡単だった。やり方は2つあるようで、Front-matterのcategories部分を配列にしたり、リストを重ねれば多段になる。
-ただし、Hexo Ver3.0.0にはカテゴリーのバグがあり正しく出力されない。Ver3.0.1にアップデートすることでこのバグは解消される。
-1categories: [foo, bar]
-123categories:- foo- ba">
+<meta name="twitter:title" content="HexoのPostに画像を置く">
+<meta name="twitter:description" content="_config.ymlの設定_config.ymlの中のpost_asset_folderをtrueにする。
+1post_asset_folder: true
+記事作成上の設定がされていると、記事作成時に.mdと同時にフォルダも作成されるので、そこに画像などの静的ファイルを配置する。例えば$ hexo new sample-postをすると、sample-post.mdと同一の階層にsample-">
 <meta name="twitter:creator" content="@https://twitter.com/saucerjp">
   
     <link rel="alternative" href="/atom.xml" title="SAUCER blog" type="application/atom+xml">
@@ -69,10 +66,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-how-to-use-categories" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-how-to-put-images-in-a-post" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/04/28/how-to-use-categories/" class="article-date">
-  <time datetime="2015-04-28T06:59:46.000Z" itemprop="datePublished">2015/04/28</time>
+    <a href="/2015/04/29/how-to-put-images-in-a-post/" class="article-date">
+  <time datetime="2015-04-29T13:10:48.000Z" itemprop="datePublished">2015/04/29</time>
 </a>
     
   <div class="article-category">
@@ -87,7 +84,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hexoのカテゴリーを多段にする
+      HexoのPostに画像を置く
     </h1>
   
 
@@ -95,23 +92,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>これは知らなかっただけなので超簡単だった。やり方は2つあるようで、<code>Front-matter</code>の<code>categories</code>部分を配列にしたり、リストを重ねれば多段になる。</p>
-<p>ただし、Hexo Ver3.0.0にはカテゴリーの<a href="https://github.com/hexojs/hexo/issues/1132" target="_blank" rel="external">バグ</a>があり正しく出力されない。Ver3.0.1にアップデートすることでこのバグは解消される。</p>
-<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">categories</span>: <span class="string">[foo, bar]</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">-<span class="ruby"> foo</span><br><span class="line"></span>-<span class="ruby"> baz</span></span><br></pre></td></tr></table></figure>
-<p>結果はこんな感じになる。</p>
-<ul>
-<li>foo(2)<ul>
-<li>bar(1)</li>
-<li>baz(1)</li>
-</ul>
-</li>
-</ul>
-
+        <h2 id="_config-ymlの設定">_config.ymlの設定</h2><p><code>_config.yml</code>の中の<code>post_asset_folder</code>を<code>true</code>にする。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h2 id="記事作成">記事作成</h2><p>上の設定がされていると、記事作成時に<code>.md</code>と同時にフォルダも作成されるので、そこに画像などの静的ファイルを配置する。例えば<code>$ hexo new sample-post</code>をすると、<code>sample-post.md</code>と同一の階層に<code>sample-post</code>フォルダが作成される。</p>
+<h2 id="記事に配置するコード">記事に配置するコード</h2><p>フォルダを参照するためのコードを記事に設置することで、フォルダ内の静的ファイルを参照できる。Markdownなのでリンクのパス部分のみ置き換えなのかと思ったら、コードの設置のみで良いらしい。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// これは正しく実行されない</span><br><span class="line">![<span class="link_label">example image</span>](<span class="link_url">&#123;% asset_img example.png %&#125;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 画像が出力される</span></span><br><span class="line">&#123;% asset_img example.png <span class="variable">%&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// テキストリンクが出力される</span></span><br><span class="line">&#123;% asset_link example.png <span class="string">'サンプル'</span> <span class="variable">%&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// パスがテキストで出力される</span></span><br><span class="line">&#123;% asset_link example.pdf <span class="string">'サンプルpdf'</span> <span class="variable">%&#125;</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://saucer-jp.github.io/2015/04/28/how-to-use-categories/" data-id="ci92rh6t7000hwuc9thdcaf5s" class="article-share-link">Share</a>
+      <a data-url="http://saucer-jp.github.io/2015/04/29/how-to-put-images-in-a-post/" data-id="ci92rh6ta000kwuc98ql1au4o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -120,19 +110,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/04/29/how-to-deploy-blogs-to-github-pages/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/04/29/how-to-use-draft-option/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Hexoの記事をGitHub Pagesにデプロイする
+          $ hexo serverでドラフトの記事も表示する
         
       </div>
     </a>
   
   
-    <a href="/2015/04/27/initial-post/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/04/29/how-to-deploy-blogs-to-github-pages/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hexoを使い始めた</div>
+      <div class="article-nav-title">Hexoの記事をGitHub Pagesにデプロイする</div>
     </a>
   
 </nav>
